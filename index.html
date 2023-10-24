@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset= "UTF-8">
+		<meta name = "viewport" content= width=device-width, initial>
+		<title>Website LogIn and Sign Up</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<style type="text/css">
+			*{
+				text-decoration: none;
+				box-sizing: border-box;
+			}
+			nav{
+				background: lavender;
+				font-family: architects-daughter;
+				padding-right: 0px;
+				padding-left: 0px;
+			}
+			.navdiv{
+				display: flex;
+				justify-content: space-between;
+			}
+			.logo{
+				margin-top: 5px;
+				margin-left: 5px;
+				width: 250px;
+				height: 100px;
+			}
+			.logo img{
+				width: 100%;
+				height: auto;
+			}
+			li{
+				list-style: none;
+				display: inline-block;
+			}
+			li a{
+				color: black;
+				font-size: 20px;
+				font-weight: bold;
+				margin-right: 20px;
+			}
+			button{
+				background-color: lavender; 
+				margin-left: 10px;
+				margin-right: 20px;
+				border-radius: 10px;
+				padding: 10px;
+				width: 100px;
+			}
+			button a{
+				color: black;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			button:hover{
+				transition: .5s;
+				transform: scale(1.2);
+				background: white;
+				color: black;
+			}
+			#slider{
+				margin: 0 auto;
+				width: 800px;
+				max-width: 100%;
+				text-align: center;
+			}
+			#slider input[type=radio]{
+				display: none;
+			}
+			#slider label{
+				cursor: pointer;
+				text-decoration: none;
+			}
+			#slides{
+				padding: 30px;
+				border: 3px solid #ccc;
+				background: #fff;
+				position: relative;
+				z-index: 1;
+			}
+			#overflow {
+				width: 100%;
+				overflow: hidden;
+			}
+			#slide1:checked ~ #slides .inner{
+				margin-left: 0;
+			}
+			#slide2:checked ~ #slides .inner{
+				margin-left: -100%;
+			}
+			#slide3:checked ~ #slides .inner{
+				margin-left: -200%;
+			}
+			#slides .inner{
+				transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+				width: 400%;
+				line-height: 0;
+				height: 500px;
+			}
+			#slides .slide{
+				width: 25%;
+				float: left;
+				display: block;
+				height: 100%;
+				color: black;
+			}
+			#slides .slide_1{
+				background-image: "1.jpg";
+			}
+			#slides .slide_2{
+				background-image: "2.jpg";
+			}
+			#slides .slide_3{
+				background-image: "3.jpg";
+			}
+			.slide-content{
+				padding: 10px;
+			}
+			#controls{
+				margin: -130px 0 0 0;
+				width: 100%;
+				height: 50px;
+				z-index: 3;
+				position: relative;
+			}
+			#controls label{
+				transition: opacity 0.2s ease-out;
+				display: none;
+				width: 50px;
+				height: 50px;
+				opacity: .4;
+			}
+			#controls label:hover{
+				opacity: 1;
+			}
+			#slide:checked ~ #controls label:nth-child(2),
+			#slide:checked ~ #controls label:nth-child(3),
+			#slide:checked ~ #controls label:nth-child(1){
+				background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no repeat;
+				float: right;
+				margin: 0 -50px 0 0;
+				display: block;
+			}
+			#slide:checked ~ #controls label:nth-last-child(2),
+			#slide:checked ~ #controls label:nth-last-child(3),
+			#slide:checked ~ #controls label:nth-last-child(1){
+				background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no repeat;
+				float: left;
+				margin: 0 0 0 -50px;
+				display: block;
+			}
+			#bullets {
+				margin: 100px 0 0;
+				text-align: center;
+			}
+			#bullets label{
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 100%;
+				background: #ccc;
+				margin: 0 10px;
+			}
+			#slide1:checked ~ #bullets label:nth-child(1),
+			#slide2:checked ~ #bullets label:nth-child(2),
+			#slide3:checked ~ #bullets label:nth-child(3){
+				background: #444;
+			}
+			@media screen and (max-width: 900px){
+				#slide:checked ~ #controls label:nth-child(2),
+				#slide:checked ~ #controls label:nth-child(3),
+				#slide:checked ~ #controls label:nth-child(1),
+				#slide:checked ~ #controls label:nth-last-child(2),
+				#slide:checked ~ #controls label:nth-last-child(3),
+				#slide:checked ~ #controls label:nth-last-child(1){
+				margin: 0;
+				}
+			}
+		</style>
+	</head
+	
+	<body>
+		<nav>
+			<div class="navdiv">
+				<div class="logo"><a href="#"><img src="logo.jpg"></a></div>
+				<ul>
+					<li><a href="#"><i class="fa-solid fa-magnifying-glass" style="color: #01060e;"></i></a></li>
+					<li><a href="#"><i class="fa-regular fa-circle-question" style="color: #01060e;"></i></a></li>
+					<button><a href="LOGIN.html">Log In</a></button>
+					<button><a href="REGISTER.html">Register</a></button>
+				</ul>
+			</div>
+		</nav>
+		
+		<div id="slider">
+			<input type="radio" name="slider" id="slide1" checked>
+			<input type="radio" name="slider" id="slide2">
+			<input type="radio" name="slider" id="slide3">
+			<div id="slides">
+				<div id="overflow">
+					<div class="inner">
+						<div class="slide slide_1">
+							<div class="slide-content">
+								<h2>We turn ideas and use technology into works of art,</h2>
+								<h2> not just about visual but about experiences.</h2>
+								<img src="1.jpg">
+							</div>
+						</div>
+						<div class="slide slide_2">
+							<div class="slide-content">
+								<h2>Offering work of exceptional design and execution.</h2>
+								<h2></h2>
+								<img src="2.jpg">
+							</div>
+						</div>
+						<div class="slide slide_3">
+							<div class="slide-content">
+								<h2>We contribute a commitment to accuracy, a thoughtful creative</h2>
+								<h2>thinking, and a talent for communicating concepts.</h2>
+								<img src="3.jpg">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="controls">
+				<label for="slide1"></label>
+				<label for="slide2"></label>
+				<label for="slide3"></label>
+			</div>
+			<div id="bullets">
+				<label for="slide1"></label>
+				<label for="slide2"></label>
+				<label for="slide3"></label>
+			</div>
+		</div>
+		
+	</body>
+</html>
